@@ -1,0 +1,51 @@
+.container-for-calendars {
+  display: grid;
+
+  width: fit-content;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 20px;
+
+  margin: auto;
+}
+
+.calendar-grid {
+  display: grid;
+  border: 1px solid black;
+
+  min-height: 200px;
+  
+/*currently x6 cells per colum */ 
+  grid-template-columns: repeat(6,250px);
+  
+
+  
+
+  gap: 5px;
+
+  padding: 15px;
+
+  border: 2px solid black;
+}
+
+
+
+.cell{
+  border: 2px solid black;
+
+  width: 235px;
+  height:180px;
+
+ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* A somewhat styled first cell - this will contain the "TIME" Image */ 
+.first-cell {
+
+  grid-column: span 1.3;
+  grid-row: span 1.3;
+  background-color: lightblue;
+}
