@@ -1,0 +1,25 @@
+{
+  "name": "visual-daily-agenda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomH568/Visual-Daily-Agenda.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/TomH568/Visual-Daily-Agenda/issues"
+  },
+  "homepage": "https://github.com/TomH568/Visual-Daily-Agenda#readme",
+  "dependencies": {
+    "electron": "^44.4.1"
+  }
+}
