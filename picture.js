@@ -8,6 +8,7 @@ class Picture {
     }
     show() {
         const files = fs.readdirSync(".");
+        
         for (const file of files) {
             const ext = path.extname(file).toLowerCase(); 
             const fileName = path.basename(file).toLowerCase();
