@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent view</title>
+    <link rel="stylesheet" href="parent_style.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1>Parent view</h1>
+        <p>Search for images</p>
+
+        <form id="search-form" class="search-box">
+            <input
+                type="text"
+                id="search-input"
+                placeholder="Search images..."
+            >
+            <button type="submit">Search</button>
+        </form>
+    </header>
+
+    <main class="container">
+        <h2 id="results-title">Explore images</h2>
+        <div id="image-grid" class="image-grid"></div>
+        <p id="empty-message" hidden>No images found.</p>
+    </main>
+
+    <script src="parent_script.js"></script>
+</body>
+</html>

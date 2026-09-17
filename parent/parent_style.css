@@ -1,0 +1,17 @@
+.container {
+    padding: 20px;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.image-card {
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
