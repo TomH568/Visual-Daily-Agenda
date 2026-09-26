@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/TomH568/Visual-Daily-Agenda#readme",
   "dependencies": {
-    "electron": "^44.4.1"
+    "electron": "^44.4.5"
   }
 }
