@@ -1,3 +1,7 @@
+.header {
+    text-align: center;
+}
+
 .container {
     padding: 20px;
 }
@@ -11,7 +15,11 @@
 .image-card {
     background-color: white;
     padding: 10px;
+    border: 2px solid gray;
     border-radius: 8px;
     text-align: center;
 }
 
+.image-card:hover {
+    border-color: black;
+}

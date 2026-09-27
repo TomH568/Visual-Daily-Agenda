@@ -28,6 +28,7 @@ const images = [
 ];
 
 const searchForm = document.getElementById("search-form");
+const searchInput = document.getElementById("search-input");
 const imageGrid = document.getElementById("image-grid");
 const resultsTitle = document.getElementById("results-title");
 const emptyMessage = document.getElementById("empty-message");
@@ -54,5 +55,33 @@ function displayImages(imageList) {
         imageGrid.appendChild(card);
     });
 }
+
+function searchImages(query) {
+    const searchTerm = query.trim().toLowerCase();
+
+    const filteredImages = images.filter((image) => {
+        return (
+            image.title.toLowerCase().includes(searchTerm) ||
+            image.category.toLowerCase().includes(searchTerm)
+        );
+    });
+
+    displayImages(filteredImages);
+
+    if (searchTerm) {
+        resultsTitle.textContent = `Result for: "${searchTerm}"`;
+    } else {
+        resultsTitle.textContent = "Explore images";
+    }
+}
+
+searchForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    searchImages(searchInput.value);
+});
+
+searchInput.addEventListener("input", () => {
+    searchImages(searchInput.value);
+});
 
 displayImages(images);
