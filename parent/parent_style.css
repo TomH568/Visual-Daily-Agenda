@@ -4,7 +4,7 @@ body {
 
 #AB {
     display: flex;
-    height: 100vh;
+    height: 98vh;
 }
 
 #search-side {
@@ -60,4 +60,11 @@ input {
     border: 1px solid black;
     padding: 2px;
     aspect-ratio: 1;
+}
+
+#toggle-view {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 37px;
 }
