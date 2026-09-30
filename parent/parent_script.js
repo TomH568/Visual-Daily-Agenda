@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const img = document.createElement("img");
             img.src = image;
-            img.style.width = "15vw";
+            img.style.width = "100%";
             //img.alt = image.title;
 
             //const title = document.createElement("h3");
