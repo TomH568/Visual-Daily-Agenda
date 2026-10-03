@@ -2,30 +2,50 @@ const Picture = require("../picture.js");
 
 const pic = new (Picture);
 
+const targetBlocks = document.querySelectorAll('.cell');
+
+targetBlocks.forEach(block => {
+    block.addEventListener('dragover', (event) => {
+        event.preventDefault();
+    });
+
+    block.addEventListener('drop', (event) => {
+        event.preventDefault();
+        const draggedImgId = event.dataTransfer.getData('text/plain');
+        const draggedImg = document.getElementById(draggedImgId);
+
+        event.target.appendChild(draggedImg);
+    });
+});
+
+
 // 2. Wait for the DOM tree to be fully loaded
 document.addEventListener("DOMContentLoaded", () => {
     const searchForm = document.getElementById('search-form');
     const searchInput = document.getElementById('search-input');
 
     const imageGrid = document.getElementById("image-grid");
-    const resultsTitle = document.getElementById("results-title");
+    //const resultsTitle = document.getElementById("results-title");
     const emptyMessage = document.getElementById("empty-message");
 
     function displayImages(imageList) {
         imageGrid.innerHTML = "";
         emptyMessage.hidden = imageList.length !== 0;
 
-        imageList.forEach((image) => {
+        imageList.forEach((image, index) => {
             const card = document.createElement("div");
             card.className = "image-card";
 
-            console.log(image);
+            //console.log(image);
 
             const img = document.createElement("img");
             img.src = image;
             img.style.width = "100%";
-            //img.alt = image.title;
-
+            img.draggable = true;    //attribute to allow dragging the image
+            img.id = `img-${index}`; // Set the id of the image to the draggedImgId variable
+            img.addEventListener('dragstart', (event) => {
+                event.dataTransfer.setData('text/plain', event.target.id); // Store the image id in the dataTransfer object
+            });
             //const title = document.createElement("h3");
             //title.textContent = image.title;
 
@@ -34,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             imageGrid.appendChild(card);
         });
+        const targetBlocks = document.querySelectorAll('.cell');
     }
 
     // 3. Listen for the form submission (button click or Enter key press)
@@ -53,9 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
-
-
-
 
 /*const images = [
     {
