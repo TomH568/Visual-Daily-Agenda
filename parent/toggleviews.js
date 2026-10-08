@@ -2,7 +2,7 @@ const viewBtn = document.getElementById("toggle-view");
 viewBtn.addEventListener("click", () => toggleView());
 
 const searchView = document.getElementById("search-side");
-const childView = document.getElementById("child-view-side");
+const childView = document.getElementById("container-for-calendars");
 
 const views = ["A/B", "A", "B"]
 let viewIndex = 0;

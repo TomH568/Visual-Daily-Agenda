@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parent view</title>
     <link rel="stylesheet" href="parent_style.css">
+    <link rel="stylesheet" href="../src\css\grid_styles.css">
 </head>
 <body>
     <div id="AB">
@@ -33,23 +34,21 @@
         <p id="empty-message" hidden>No images found.</p>
     </main>
     </div>
-    <div id="child-view-side">
-        <div id="example-grid">
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-        </div>
-    </div>
+    
+        <div class="container-for-calendars">
+            <div id="calendar-container"></div>
+
+        
+    
     </div>
     <button id="toggle-view">A/B</button>
     <script src="toggleviews.js"></script>
     <script src="parent_script.js"></script>
+    <script src="../src/Child/calendarData.js"></script>
+        
+
+    <script src="../src/Child/calendar.js"></script>
+
+    <script src="../src/cellselection.js"></script>
 </body>
 </html>
