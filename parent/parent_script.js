@@ -54,8 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             imageGrid.appendChild(card);
         });
-        const targetBlocks = document.querySelectorAll('.cell');
-    }
+    };
 
     // 3. Listen for the form submission (button click or Enter key press)
     searchForm.addEventListener('submit', (event) => {

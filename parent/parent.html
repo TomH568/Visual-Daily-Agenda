@@ -4,37 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parent view</title>
+    
     <link rel="stylesheet" href="parent_style.css">
+    <link rel="stylesheet" href="..\src\css\grid_styles.css">
 </head>
 <body>
     <div id="AB">
-    <div id="search-side">
-    <button onclick="window.location.href='../index.html'">
-            Main
-        </button>
+        <div id="search-side">
+            <button onclick="window.location.href='../index.html'">
+                    Main
+                </button>
 
-    <header class="header">
-        <h1>Parent view</h1>
-        <p>Search for images</p>
+            <header class="header">
+                <h1>Parent view</h1>
+                <p>Search for images</p>
 
-        <form id="search-form" class="search-box">
-            <input
-                type="text"
-                id="search-input"
-                placeholder="Search images..."
-            >
-            <button type="submit">Search</button>
-        </form>
-    </header>
+                <form id="search-form" class="search-box">
+                    <input
+                        type="text"
+                        id="search-input"
+                        placeholder="Search images..."
+                    >
+                    <button type="submit">Search</button>
+                </form>
+            </header>
 
-    <main class="container">
-        <h2 id="results-title">Explore images</h2>
-        <div id="image-grid" class="image-grid"></div>
-        <p id="empty-message" hidden>No images found.</p>
-    </main>
-    </div>
-    <div id="child-view-side">
-        <div id="example-grid">
+            <main class="container">
+                <h2 id="results-title">Explore images</h2>
+                <div id="image-grid" class="image-grid"></div>
+                <p id="empty-message" hidden>No images found.</p>
+            </main>
+        </div>
+
+        <div id="child-view-side">
+            <div id="example-grid">
             <div class="cell"></div>
             <div class="cell"></div>
             <div class="cell"></div>
@@ -45,9 +48,10 @@
             <div class="cell"></div>
             <div class="cell"></div>
             <div class="cell"></div>
+            </div>
         </div>
     </div>
-    </div>
+
     <button id="toggle-view">A/B</button>
     <script src="toggleviews.js"></script>
     <script src="parent_script.js"></script>
