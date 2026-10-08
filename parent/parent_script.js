@@ -2,7 +2,7 @@ const Picture = require("../picture.js");
 
 const pic = new (Picture);
 
-const targetBlocks = document.querySelectorAll('.cell');
+const targetBlocks = document.querySelectorAll('.cell, .first-cell');
 
 targetBlocks.forEach(block => {
     block.addEventListener('dragover', (event) => {
@@ -15,6 +15,7 @@ targetBlocks.forEach(block => {
         const draggedImg = document.getElementById(draggedImgId);
 
         event.target.appendChild(draggedImg);
+        //calendarData = [        draggedImg.src
     });
 });
 
@@ -32,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         imageGrid.innerHTML = "";
         emptyMessage.hidden = imageList.length !== 0;
 
-        imageList.forEach((image, index) => {
+        imageList.forEach((image) => {
             const card = document.createElement("div");
             card.className = "image-card";
 
@@ -42,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
             img.src = image;
             img.style.width = "100%";
             img.draggable = true;    //attribute to allow dragging the image
-            img.id = `img-${index}`; // Set the id of the image to the draggedImgId variable
+            img.id = `img-${crypto.randomUUID()}`; // Set the id of the image to the draggedImgId variable
             img.addEventListener('dragstart', (event) => {
                 event.dataTransfer.setData('text/plain', event.target.id); // Store the image id in the dataTransfer object
             });
@@ -54,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             imageGrid.appendChild(card);
         });
-        const targetBlocks = document.querySelectorAll('.cell');
     }
 
     // 3. Listen for the form submission (button click or Enter key press)
