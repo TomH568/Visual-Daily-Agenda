@@ -13,9 +13,11 @@ targetBlocks.forEach(block => {
         event.preventDefault();
         const draggedImgId = event.dataTransfer.getData('text/plain');
         const draggedImg = document.getElementById(draggedImgId);
-
-        event.target.appendChild(draggedImg);
-        //calendarData = [        draggedImg.src
+        if (event.currentTarget.querySelector('img')) {
+            event.currentTarget.querySelector('img').remove(); // Remove the existing image if there is one
+        }
+        event.currentTarget.appendChild(draggedImg);
+        //calendarData = draggedImg.src
     });
 });
 
