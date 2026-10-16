@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parent view</title>
+    <title>Daily Visual Agenda</title>
     <link rel="stylesheet" href="parent_style.css">
     <link rel="stylesheet" href="../src\css\grid_styles.css">
 </head>
 <body>
-    <div id="AB">
-    <div id="search-side">
-    <button onclick="window.location.href='../index.html'">
-            Main
-        </button>
-
     <header class="header">
-        <h1>Parent view</h1>
-        <p>Search for images</p>
+        <h1>Daily Visual Agenda</h1>
+        <button id="toggle-view" class="button">A/B</button>
+    </header>
+
+    <div id="AB">
+
+    <div id="search-side">
+        <h2>Search for images</h2>
 
         <form id="search-form" class="search-box">
             <input
@@ -26,32 +26,25 @@
             >
             <button type="submit">Search</button>
         </form>
-    </header>
 
-    <main class="container">
-        <h2 id="results-title">Explore images</h2>
-        <div id="image-grid" class="image-grid"></div>
-        <p id="empty-message" hidden>No images found.</p>
-    </main>
+        <main class="container">
+            <div id="image-grid" class="image-grid"></div>
+            <p id="empty-message" hidden>No images found.</p>
+        </main>
     </div>
-    <!--Callinf containers for calendars-->
-        <div class="container-for-calendars">
+    
+        <div id="container-for-calendars" class="container-for-calendars">
             <div id="calendar-container"></div>
-            <div id="calendar-container2"></div>
+        </div>
+    </div>                <div id="calendar-container2"></div>
 
-        
-    
-    </div>
-    <button id="toggle-view">A/B</button>
+
+
     <script src="toggleviews.js"></script>
-    
     <script src="../src/Child/calendarData.js"></script>
         
 
-    <script src="../src/jsonhandler.js"></script>
-
     <script src="../src/Child/calendar.js"></script>
-
     <script src="../src/cellselection.js"></script>
 
     <script src="parent_script.js"></script>    

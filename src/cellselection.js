@@ -6,8 +6,8 @@ for (const cell of cells) {
     const selectionArrow = document.createElement("div");
     selectionArrow.style.display = "none";
     selectionArrow.style.position = "absolute";
-    selectionArrow.style.marginTop = "220px";
-    selectionArrow.style.fontSize = "40px";
+    selectionArrow.style.marginTop = "72px";
+    selectionArrow.style.fontSize = "35px";
     selectionArrow.innerHTML = "▲";
     cell.appendChild(selectionArrow);
 
@@ -16,7 +16,7 @@ for (const cell of cells) {
     };
 }
 
-cells[0].style.border = "4px solid red";
+cells[0].style.border = "4px solid #e95d64";
 cells[0].style.filter = "";
 cells[0].lastChild.style.display = "block";
 
@@ -26,7 +26,7 @@ function cellSelection(element) {
         cell.style.filter = "grayscale(80%) brightness(80%)"
         cell.lastChild.style.display = "none";
     }
-    element.style.border = "4px solid red";
+    element.style.border = "4px solid #e95d64";
     element.style.filter = "";
     element.lastChild.style.display = "block";
 }
