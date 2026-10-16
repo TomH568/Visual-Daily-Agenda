@@ -6,9 +6,10 @@ for (const cell of cells) {
     const selectionArrow = document.createElement("div");
     selectionArrow.style.display = "none";
     selectionArrow.style.position = "absolute";
-    selectionArrow.style.marginTop = "72px";
-    selectionArrow.style.fontSize = "35px";
+    selectionArrow.style.marginTop = "15%";
+    selectionArrow.style.fontSize = "3vw";
     selectionArrow.innerHTML = "▲";
+    selectionArrow.classList += "arrow";
     cell.appendChild(selectionArrow);
 
     cell.onclick = function () {
@@ -18,15 +19,15 @@ for (const cell of cells) {
 
 cells[0].style.border = "4px solid #e95d64";
 cells[0].style.filter = "";
-cells[0].lastChild.style.display = "block";
+cells[0].querySelector(".arrow").style.display = "block";
 
 function cellSelection(element) {
     for (const cell of cells) {
         cell.style.border = "";
         cell.style.filter = "grayscale(80%) brightness(80%)"
-        cell.lastChild.style.display = "none";
+        cell.querySelector(".arrow").style.display = "none";
     }
     element.style.border = "4px solid #e95d64";
     element.style.filter = "";
-    element.lastChild.style.display = "block";
+    element.querySelector(".arrow").style.display = "block";
 }
