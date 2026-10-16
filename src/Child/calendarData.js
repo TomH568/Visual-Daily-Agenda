@@ -47,3 +47,7 @@ const afternoonCalendar = new Calendar("Afternoon", [
 { type: "cell",image: null},
 { type: "cell",image: null}
 ]);
+
+
+// Creating an array for parsing to json - will store list of calendars
+const calendars = [morningCalendar, afternoonCalendar];

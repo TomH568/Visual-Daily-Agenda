@@ -9,7 +9,8 @@ class Picturedata {
             fs.access('picturedata.json');
         } catch {
             try {
-                fs.writeFileSync('picturedata.json', JSON.stringify(calendarData, null, 2), 'utf8');
+                //CHANGED: This will now take the claendar list from the calendarData.js file
+                fs.writeFileSync('picturedata.json', JSON.stringify(calendars, null, 2), 'utf8');
                 console.log("default JSON created");
             } catch (err) {
                 console.error('Error writing file:', err);

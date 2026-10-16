@@ -50,6 +50,39 @@ function createCalendar(containerId, calendar) {
 
     container.appendChild(grid); 
 }
+
+
+/*-------------------------------------
+USING DATA FROM JSON
+--------------------------------------*/
+//const loadedCalendarData = jsonData.readData();
+/*
+// define what calendar classes exist :
+
+---------
+BUG!!
+---------
+
+PROBLEM WITH RENDERING FROM JSON 
+
+
+-- using twice 
+let morningCalendar;
+let afternoonCalendar;
+
+//Checking whether existing saved json calendar exists, if not create a new one with default values.
+
+if (loadedCalendarData) {
+    // If the JSON file exists, use the loaded data to create calendars
+    morningCalendar = new Calendar("Morning", loadedCalendarData[0].cells);
+    afternoonCalendar = new Calendar("Afternoon", loadedCalendarData[1].cells);}
+*/
+//console.log(loadedCalendarData);
+
+/*----------------------------------------
+Rendering the calendars onto the page
+-----------------------------------------*/
+
 // creatinng calendars for morning and afternoon//
 createCalendar("calendar-container", morningCalendar);
 createCalendar("calendar-container2", afternoonCalendar);
