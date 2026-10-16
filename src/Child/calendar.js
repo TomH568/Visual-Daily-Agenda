@@ -3,22 +3,24 @@
 
 
 
-function createCalendar(containerId, calendarData) {
+function createCalendar(containerId, calendar) {
 
-
+ // create a container for the calendar
     const container = document.getElementById(containerId);
 
-
+    // create a grid for the calendar
     const grid = document.createElement("div");
     grid.className = "calendar-grid";
 
-    
-    for ( let i = 0; i < calendarData.length; i++) {
+    // create div for each cell in the calendar
+    for ( let i = 0; i < calendar.cells.length; i++) {
+        // get the current cell from the calendar class
+        const currentCell = calendar.cells[i];
 
         const cell = document.createElement("div");
 
-
-        if (calendarData[i].type === "first-cell"){
+        // check if the current cell is a first-cell  or a regular cell and assign class 
+        if (currentCell.type === "first-cell"){
 
             cell.className = "first-cell";  
         }
@@ -26,15 +28,16 @@ function createCalendar(containerId, calendarData) {
 
             cell.className ="cell";   
         }
-        if (calendarData[i].image) {
+        // checkk for images 
+        if (currentCell.image) {
 
             const img = document.createElement("img");
 
-            img.src = calendarData[i].image;
+            img.src = currentCell.image;
 
             //nested if so as to check whether the first element is a "time" img or regular.
 
-            if (calendarData[i].type === "first-cell") {
+            if (currentCell.type === "first-cell") {
                 img.className = "time_image";
             }
             else {
@@ -47,5 +50,6 @@ function createCalendar(containerId, calendarData) {
 
     container.appendChild(grid); 
 }
-
-createCalendar("calendar-container", calendarData);
+// creatinng calendars for morning and afternoon//
+createCalendar("calendar-container", morningCalendar);
+createCalendar("calendar-container2", afternoonCalendar);
