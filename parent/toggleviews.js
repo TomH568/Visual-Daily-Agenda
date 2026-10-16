@@ -4,7 +4,7 @@ viewBtn.addEventListener("click", () => toggleView());
 const searchView = document.getElementById("search-side");
 const childView = document.getElementById("container-for-calendars");
 
-const views = ["A/B", "A", "B"]
+const views = ["Settings", "View Calendars", "Search Images"];
 let viewIndex = 0;
 
 function toggleView() {
@@ -16,19 +16,19 @@ function toggleView() {
 
     viewBtn.innerHTML = views[viewIndex];
 
-    if (views[viewIndex] == "A/B") {
+    if (views[viewIndex] == "Settings") {
         searchView.style.display = "block";
         searchView.style.width = "30%";
 
         childView.style.display = "block";
         childView.style.width = "70%";
     }
-    if (views[viewIndex] == "A") {
+    if (views[viewIndex] == "View Calendars") {
         searchView.style.width = "100%";
 
         childView.style.display = "none";
     }
-    if (views[viewIndex] == "B") {
+    if (views[viewIndex] == "Search Images") {
         searchView.style.display = "none";
 
         childView.style.display = "block";
