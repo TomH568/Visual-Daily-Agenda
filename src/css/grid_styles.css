@@ -30,18 +30,18 @@
   /*background-color: #c8ded3;  NOTE. Java script will style the background color */
   aspect-ratio: 1;
   width: 100%;
-  border: 2px solid black;
+  border: 4px solid black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-}
+  
 
 .time_image{
   aspect-ratio: 1;
   width: 90%;
-  /*border: 2px solid black; without border*/
+  
   display: flex;
   justify-content: center;
   align-items: center;
