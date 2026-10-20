@@ -17,6 +17,9 @@ class Picture {
      */
     
     show(keyWord) {
+        if (keyWord === undefined || keyWord.trim() === "" ) {
+            return this.showAll();
+        }
         keyWord = keyWord.toLowerCase();
         const picsDir = path.join(__dirname, 'Pics');
         const files = fs.readdirSync(picsDir);
@@ -26,6 +29,26 @@ class Picture {
             const ext = path.extname(file).toLowerCase(); 
             const fileName = path.basename(file).toLowerCase();
             if ((ext === '.png' || ext === '.jpg') && fileName.includes(keyWord)) {
+                const absolutePath = path.join(picsDir, file);
+                fileList.push(absolutePath);
+            }
+        }
+        return fileList;
+    }
+
+     /**
+     * Retrieves all PNG and JPG files from the Pics directory.
+     * 
+     * @returns {string[]} An array of absolute paths to all images.
+     */
+    showAll() {
+        const picsDir = path.join(__dirname, 'Pics');
+        const files = fs.readdirSync(picsDir);
+        const fileList = [];
+        
+        for (const file of files) {
+            const ext = path.extname(file).toLowerCase(); 
+            if (ext === '.png' || ext === '.jpg') {
                 const absolutePath = path.join(picsDir, file);
                 fileList.push(absolutePath);
             }
