@@ -22,7 +22,13 @@ function createCalendar(containerId, calendar) {
         // check if the current cell is a first-cell  or a regular cell and assign class 
         if (currentCell.type === "first-cell"){
 
-            cell.className = "first-cell";  
+            cell.className = "first-cell";
+            //styling the color of the first cell based on the calendar's color property
+            cell.style.backgroundColor = calendar.color;
+            const title = document.createElement("div");
+            title.className = "calendar-name";
+            title.textContent = calendar.name;
+            cell.appendChild(title);
         }
         else {
 
@@ -86,3 +92,5 @@ Rendering the calendars onto the page
 // creatinng calendars for morning and afternoon//
 createCalendar("calendar-container", morningCalendar);
 createCalendar("calendar-container2", afternoonCalendar);
+createCalendar("calendar-container3", eveningCalendar);
+createCalendar("calendar-container4", nightCalendar);

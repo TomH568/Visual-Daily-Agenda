@@ -27,11 +27,12 @@
 
 /* A somewhat styled first cell - this will contain the "TIME" Image */ 
 .first-cell {
-  background-color: #c8ded3;
+  /*background-color: #c8ded3;  NOTE. Java script will style the background color */
   aspect-ratio: 1;
   width: 100%;
   border: 2px solid black;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
@@ -39,7 +40,7 @@
 
 .time_image{
   aspect-ratio: 1;
-  width: 100%;
+  width: 90%;
   border: 2px solid black;
   display: flex;
   justify-content: center;
@@ -49,4 +50,11 @@
 
 .image{
   object-fit: contain;
+}
+
+/*Styling calendar title in first cell */
+.calendar-name{
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
 }
