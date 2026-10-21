@@ -16,7 +16,8 @@ body {
 
 #AB {
     display: flex;
-    height: 98vh;
+    /* adjust height to account for other side  */
+    align-items: stretch;
 }
 
 #search-side {
@@ -25,8 +26,10 @@ body {
     border-right: 1px solid black;
     min-width: 150px;
     flex: 3;
-    min-height: 0;
-    overflow-y: auto;
+    
+    
+    top: 0;
+    
 }
 
 #child-view-side {
@@ -52,7 +55,7 @@ input {
     gap: 8px;
     width: 100%;
     box-sizing: border-box;
-    overflow-y: auto;
+    
 }
 
 .image-card {
@@ -60,8 +63,13 @@ input {
     padding: 10px;
     border-radius: 8px;
     text-align: center;
-    max-width: 50px;
+    
     box-sizing: border-box;
+
+    width: 100%;
+    max-width: 100px;
+    height: 100%;
+    
 }
 
 .button {
