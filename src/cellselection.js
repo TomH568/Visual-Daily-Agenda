@@ -6,8 +6,8 @@ for (const cell of cells) {
     const selectionArrow = document.createElement("div");
     selectionArrow.style.display = "none";
     selectionArrow.style.position = "absolute";
-    selectionArrow.style.marginTop = "15%";
-    selectionArrow.style.fontSize = "3vw";
+    selectionArrow.style.marginTop = "max(15%, 20vh)";
+    selectionArrow.style.fontSize = "max(3vw, 3vh)";
     selectionArrow.innerHTML = "▲";
     selectionArrow.classList += "arrow";
     cell.appendChild(selectionArrow);
