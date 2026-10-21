@@ -25,7 +25,7 @@ body {
     padding: 5px;
     border-right: 1px solid black;
     min-width: 150px;
-    flex: 3;
+    flex: 0 0 30%;
     
     
     top: 0;

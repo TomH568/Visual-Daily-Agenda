@@ -19,12 +19,14 @@ function toggleView() {
     if (views[viewIndex] == "Settings") {
         searchView.style.display = "block";
         searchView.style.width = "30%";
+        searchView.style.flex = "0 0 30%";
 
         childView.style.display = "block";
         childView.style.width = "70%";
     }
     if (views[viewIndex] == "View Calendars") {
         searchView.style.width = "100%";
+        searchView.style.flex = "0 0 100%";
 
         childView.style.display = "none";
     }
