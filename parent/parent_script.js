@@ -25,7 +25,11 @@ targetBlocks.forEach(block => {
 // 2. Wait for the DOM tree to be fully loaded
 document.addEventListener("DOMContentLoaded", () => {
     const searchForm = document.getElementById('search-form');
+    const filterForm = document.getElementById('filter-form');
     const searchInput = document.getElementById('search-input');
+    const filterInput = document.getElementById('filter-input');
+
+    let currentImages = [];
 
     const imageGrid = document.getElementById("image-grid");
     //const resultsTitle = document.getElementById("results-title");
@@ -59,22 +63,70 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 3. Listen for the form submission (button click or Enter key press)
-    searchForm.addEventListener('submit', (event) => {
-        event.preventDefault(); // Stop the page from reloading
-
-        const textValue = searchInput.value;
-
-        if (textValue) { 
-            
-            const imageResults = pic.show(textValue); 
-            
-            console.log("Found files:", imageResults);
-
-            displayImages(imageResults);
-            
+    function applyFilter() {
+        const filterValue = filterInput.value.toLowerCase().trim();
+        
+        if (!filterValue) {
+            displayImages(currentImages);
+            return;
         }
-    });
+
+        const filtered = currentImages.filter(imagePath => {
+           
+            const fileName = imagePath.split(/[/\\]/).pop().toLowerCase();
+            return fileName.includes(filterValue);
+        });
+
+        displayImages(filtered);
+        
+        const targetBlocks2 = document.querySelectorAll('.image-card');
+
+        targetBlocks2.forEach(block => {
+            block.addEventListener('dragover', (event) => {
+                event.preventDefault();
+            });
+        
+            block.addEventListener('drop', (event) => {
+                event.preventDefault();
+                const draggedImgId = event.dataTransfer.getData('text/plain');
+                const draggedImg = document.getElementById(draggedImgId);
+                if (event.currentTarget.querySelector('img')) {
+                    event.currentTarget.querySelector('img').remove(); // Remove the existing image if there is one
+                }
+                event.currentTarget.appendChild(draggedImg);
+                //calendarData = draggedImg.src
+            });
+});
+
+    }
+
+
+    // 3. Listen for the form submission (button click or Enter key press)
+    //searchForm.addEventListener('submit', (event) => {
+    //    event.preventDefault(); // Stop the page from reloading
+//
+    //    const textValue = searchInput.value;
+    //    
+    //        
+    //    const imageResults = pic.show(textValue); 
+    //    
+    //    console.log("Found files:", imageResults);
+//
+    //    displayImages(imageResults);
+    //        
+    //    
+    //});
+
+    if (filterForm) {
+        filterForm.addEventListener('submit', (event) => {
+            event.preventDefault(); 
+            applyFilter();
+        });
+    }
+
+    currentImages = pic.showAll(); // Display all images initially
+    displayImages(currentImages);
+    
 });
 
 /*const images = [
