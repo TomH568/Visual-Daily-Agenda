@@ -23,6 +23,8 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  object-fit: contain;
+  overflow: hidden;
 }
 
 /* A somewhat styled first cell - this will contain the "TIME" Image */ 
@@ -30,30 +32,39 @@
   /*background-color: #c8ded3;  NOTE. Java script will style the background color */
   aspect-ratio: 1;
   width: 100%;
-  border: 4px solid black;
+  border: 2px solid black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  box-shadow: 0 0 0 2px black;
+}
   
 
 .time_image{
   aspect-ratio: 1;
-  width: 90%;
-  
+  width: 80%;
+  max-width: 80%;
+  max-height: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  object-fit: contain;
 }
 
 .image{
+
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
 
 /*Styling calendar title in first cell */
 .calendar-name{
+
+  
   font-size: 1rem;
   font-weight: bold;
   text-align: center;
