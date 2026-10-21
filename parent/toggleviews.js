@@ -1,3 +1,6 @@
+//Global variable for child view
+let childMode = false;
+
 const adminBtn = document.getElementById("adminviewbutton");
 adminBtn.addEventListener("click", () => changeToAdminView());
 const childBtn = document.getElementById("childviewbutton");
@@ -9,6 +12,7 @@ const searchView = document.getElementById("search-side");
 const childView = document.getElementById("container-for-calendars");
 
 function changeToAdminView () {
+    childMode = false;
     searchView.style.display = "block";
     searchView.style.width = "32%";
     searchView.style.flex = "0 0 32%";
@@ -20,7 +24,7 @@ function changeToAdminView () {
 
 function changeToChildView () {
     searchView.style.display = "none";
-
+    childMode = true;
     childView.style.display = "block";
     childView.style.width = "100%";
     childView.style.left = "0px";
