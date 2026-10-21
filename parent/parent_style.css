@@ -12,33 +12,48 @@ body {
     padding: 30px 20px;
     background-color: #8ba49a;
     gap: 12px;
+    position: fixed;
+    z-index: 1;
+    max-height: 140px;
 }
 
 #AB {
     display: flex;
     /* adjust height to account for other side  */
     align-items: stretch;
+    position: relative;
+    top: 140px;
 }
 
 #search-side {
-    width: 30%;
+    width: 32%;
+    height: 100vh;
     padding: 5px;
     border-right: 1px solid black;
     min-width: 150px;
-    flex: 0 0 30%;
-    
-    
-    top: 0;
-    
+    flex: 0 0 32%;
+    background-color: #f4f0ec;
+    position: fixed;
+    top: 140px;
+    left: 0;
+    z-index: 1;
+    overflow-y: auto;    
 }
 
-#child-view-side {
+/* #child-view-side {
     width: 70%;
     height: 100%;
     padding: 5px;
     justify-items: center;
     flex: 7;
     min-width: 300px;
+} */
+
+.container-for-calendars {
+    position: relative;
+    left: max(32vw, 150px);
+    width: 68%;
+    min-width: 600px;
 }
 
 input {

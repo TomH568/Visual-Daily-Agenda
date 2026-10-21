@@ -10,11 +10,12 @@ const childView = document.getElementById("container-for-calendars");
 
 function changeToAdminView () {
     searchView.style.display = "block";
-    searchView.style.width = "30%";
-    searchView.style.flex = "0 0 30%";
+    searchView.style.width = "32%";
+    searchView.style.flex = "0 0 32%";
 
     childView.style.display = "block";
-    childView.style.width = "70%";
+    childView.style.width = "68%";
+    childView.style.left = "max(32vw, 150px)";
 }
 
 function changeToChildView () {
@@ -22,6 +23,7 @@ function changeToChildView () {
 
     childView.style.display = "block";
     childView.style.width = "100%";
+    childView.style.left = "0px";
 }
 
 function settingsView () {
