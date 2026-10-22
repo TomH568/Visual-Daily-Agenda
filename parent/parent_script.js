@@ -2,7 +2,14 @@ const Picture = require("../picture.js");
 
 const pic = new (Picture);
 
-const targetBlocks = document.querySelectorAll('.cell, .first-cell');
+function makeElementDraggable(imgElement) {
+    imgElement.draggable = true;
+    imgElement.addEventListener('dragstart', (event) => {
+        event.dataTransfer.setData('text/plain', event.target.id);
+    });
+}
+
+const targetBlocks = document.querySelectorAll('.cell');
 
 targetBlocks.forEach(block => {
     block.addEventListener('dragover', (event) => {
@@ -13,11 +20,20 @@ targetBlocks.forEach(block => {
         event.preventDefault();
         const draggedImgId = event.dataTransfer.getData('text/plain');
         const draggedImg = document.getElementById(draggedImgId);
+
         if (event.currentTarget.querySelector('img')) {
             event.currentTarget.querySelector('img').remove(); // Remove the existing image if there is one
+        }   
+
+        let imgToAppend = draggedImg;
+
+        if (draggedImg.parentNode.className !== event.currentTarget.className) {
+            imgToAppend = draggedImg.cloneNode(true); // Clone the dragged image to append it to the target block
+            imgToAppend.id = `img-${crypto.randomUUID()}`; // Assign a new id to the cloned image;
+            makeElementDraggable(imgToAppend); // Make the cloned image draggable
         }
-        event.currentTarget.appendChild(draggedImg);
-        //calendarData = draggedImg.src
+
+        event.currentTarget.appendChild(imgToAppend);
     });
 });
 
@@ -48,11 +64,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const img = document.createElement("img");
             img.src = image;
             img.style.width = "100%";
-            img.draggable = true;    //attribute to allow dragging the image
+            makeElementDraggable(img); // Make the image draggable
             img.id = `img-${crypto.randomUUID()}`; // Set the id of the image to the draggedImgId variable
-            img.addEventListener('dragstart', (event) => {
-                event.dataTransfer.setData('text/plain', event.target.id); // Store the image id in the dataTransfer object
-            });
             //const title = document.createElement("h3");
             //title.textContent = image.title;
 
@@ -94,9 +107,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     event.currentTarget.querySelector('img').remove(); // Remove the existing image if there is one
                 }
                 event.currentTarget.appendChild(draggedImg);
-                //calendarData = draggedImg.src
             });
-});
+        });
 
     }
 
@@ -126,6 +138,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     currentImages = pic.showAll(); // Display all images initially
     displayImages(currentImages);
+
+    imageGrid.addEventListener('dragover', (event) => {
+        event.preventDefault();
+    });
+    imageGrid.addEventListener('drop', (event) => {
+        event.preventDefault();
+        const draggedImgId = event.dataTransfer.getData('text/plain');
+        const draggedImg = document.getElementById(draggedImgId);
+        draggedImg.remove();
+    });
+
     
 });
 
