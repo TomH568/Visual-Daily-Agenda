@@ -5,6 +5,11 @@ const pic = new (Picture);
 function makeElementDraggable(imgElement) {
     imgElement.draggable = true;
     imgElement.addEventListener('dragstart', (event) => {
+//Limiting dragdrop for child view. If childMode===true return before execution//
+                if (childMode) {
+                    event.preventDefault();
+                    return;
+                }
         event.dataTransfer.setData('text/plain', event.target.id);
     });
 }
@@ -17,6 +22,12 @@ targetBlocks.forEach(block => {
     });
 
     block.addEventListener('drop', (event) => {
+        //Limiting dragdrop for child view. If childMode===true return before execution//
+                if (childMode) {
+                    event.preventDefault();
+                    return;
+                }
+
         event.preventDefault();
         const draggedImgId = event.dataTransfer.getData('text/plain');
         const draggedImg = document.getElementById(draggedImgId);
