@@ -31,17 +31,13 @@ body {
     padding: 5px;
     border-right: 1px solid black;
     min-width: 150px;
-<<<<<<< HEAD
     flex: 0 0 32%;
     background-color: #f4f0ec;
     position: fixed;
     top: 140px;
     left: 0;
     z-index: 1;
-    overflow-y: auto;    
-=======
-    flex: 0 0 30%;
-    top: 0;
+    overflow-y: auto;  
 }
 
 #filter-input {
@@ -61,7 +57,6 @@ body {
 .submit-btn:hover {
   background-color: #86482e;
   color: white;
->>>>>>> style2
 }
 
 /* #child-view-side {
