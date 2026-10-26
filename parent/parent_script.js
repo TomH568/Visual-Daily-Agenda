@@ -66,6 +66,15 @@ document.addEventListener("DOMContentLoaded", () => {
             img.style.width = "100%";
             makeElementDraggable(img); // Make the image draggable
             img.id = `img-${crypto.randomUUID()}`; // Set the id of the image to the draggedImgId variable
+            img.addEventListener('dragstart', (event) => {
+
+                //Limiting dragdrop for child view. If childMode===true return before execution//
+                if (childMode) {
+                    event.preventDefault();
+                    return;
+                }
+                event.dataTransfer.setData('text/plain', event.target.id); // Store the image id in the dataTransfer object
+            });
             //const title = document.createElement("h3");
             //title.textContent = image.title;
 
@@ -100,6 +109,9 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         
             block.addEventListener('drop', (event) => {
+                //Blocking dragdrop for child view. If childMode===true return before execution//
+                if (childMode){return;}
+
                 event.preventDefault();
                 const draggedImgId = event.dataTransfer.getData('text/plain');
                 const draggedImg = document.getElementById(draggedImgId);

@@ -101,3 +101,16 @@ input {
   background-color: #44594e;
   color: white;
 }
+
+.passCodeInput{
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 2px solid black;
+    width: 200px;
+    box-sizing: border-box;
+    background-color: #e94457;
+}
+
+/* styling the admin button when it is locked */
+
