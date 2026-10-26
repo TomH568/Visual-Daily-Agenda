@@ -1,6 +1,8 @@
 [
   {
+    "id": 1,
     "name": "Morning",
+    "color": "#dcc8de",
     "cells": [
       {
         "type": "first-cell",
@@ -50,10 +52,13 @@
         "type": "cell",
         "image": null
       }
-    ]
+    ],
+    "visible": true
   },
   {
+    "id": 2,
     "name": "Afternoon",
+    "color": "#c8ded3",
     "cells": [
       {
         "type": "first-cell",
@@ -103,6 +108,119 @@
         "type": "cell",
         "image": null
       }
-    ]
+    ],
+    "visible": true
+  },
+  {
+    "id": 3,
+    "name": "Evening",
+    "color": "#f0e6d2",
+    "cells": [
+      {
+        "type": "first-cell",
+        "image": "../Pics/ilta_19370.png"
+      },
+      {
+        "type": "cell",
+        "image": null
+      },
+      {
+        "type": "cell",
+        "image": null
+      },
+      {
+        "type": "cell",
+        "image": null
+      },
+      {
+        "type": "cell",
+        "image": null
+      },
+      {
+        "type": "cell",
+        "image": null
+      },
+      {
+        "type": "cell",
+        "image": null
+      },
+      {
+        "type": "cell",
+        "image": null
+      },
+      {
+        "type": "cell",
+        "image": null
+      },
+      {
+        "type": "cell",
+        "image": null
+      },
+      {
+        "type": "cell",
+        "image": null
+      },
+      {
+        "type": "cell",
+        "image": null
+      }
+    ],
+    "visible": true
+  },
+  {
+    "id": 4,
+    "name": "Night",
+    "color": "#d0c0b0",
+    "cells": [
+      {
+        "type": "first-cell",
+        "image": "../Pics/yö_22373.png"
+      },
+      {
+        "type": "cell",
+        "image": null
+      },
+      {
+        "type": "cell",
+        "image": null
+      },
+      {
+        "type": "cell",
+        "image": null
+      },
+      {
+        "type": "cell",
+        "image": null
+      },
+      {
+        "type": "cell",
+        "image": null
+      },
+      {
+        "type": "cell",
+        "image": null
+      },
+      {
+        "type": "cell",
+        "image": null
+      },
+      {
+        "type": "cell",
+        "image": null
+      },
+      {
+        "type": "cell",
+        "image": null
+      },
+      {
+        "type": "cell",
+        "image": null
+      },
+      {
+        "type": "cell",
+        "image": null
+      }
+    ],
+    "visible": true
   }
 ]

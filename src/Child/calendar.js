@@ -90,7 +90,8 @@ Rendering the calendars onto the page
 -----------------------------------------*/
 
 // creatinng calendars for morning and afternoon//
-createCalendar("calendar-container", morningCalendar);
-createCalendar("calendar-container2", afternoonCalendar);
-createCalendar("calendar-container3", eveningCalendar);
-createCalendar("calendar-container4", nightCalendar);
+const loadedCalendarData = jsonData.readData();
+createCalendar("calendar-container", loadedCalendarData[0]);
+createCalendar("calendar-container2", loadedCalendarData[1]);
+createCalendar("calendar-container3", loadedCalendarData[2]);
+createCalendar("calendar-container4", loadedCalendarData[3]);
