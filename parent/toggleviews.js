@@ -1,39 +1,31 @@
-const viewBtn = document.getElementById("toggle-view");
-viewBtn.addEventListener("click", () => toggleView());
+const adminBtn = document.getElementById("adminviewbutton");
+adminBtn.addEventListener("click", () => changeToAdminView());
+const childBtn = document.getElementById("childviewbutton");
+childBtn.addEventListener("click", () => changeToChildView());
+const settingsBtn = document.getElementById("settingsbutton");
+settingsBtn.addEventListener("click", () => settingsView());
 
 const searchView = document.getElementById("search-side");
 const childView = document.getElementById("container-for-calendars");
 
-const views = ["Settings", "View Calendars", "Search Images"];
-let viewIndex = 0;
+function changeToAdminView () {
+    searchView.style.display = "block";
+    searchView.style.width = "32%";
+    searchView.style.flex = "0 0 32%";
 
-function toggleView() {
-    if (viewIndex < 2) {
-        viewIndex += 1;
-    } else {
-        viewIndex = 0;
-    }
+    childView.style.display = "block";
+    childView.style.width = "68%";
+    childView.style.left = "max(32vw, 150px)";
+}
 
-    viewBtn.innerHTML = views[viewIndex];
+function changeToChildView () {
+    searchView.style.display = "none";
 
-    if (views[viewIndex] == "Settings") {
-        searchView.style.display = "block";
-        searchView.style.width = "30%";
-        searchView.style.flex = "0 0 30%";
+    childView.style.display = "block";
+    childView.style.width = "100%";
+    childView.style.left = "0px";
+}
 
-        childView.style.display = "block";
-        childView.style.width = "70%";
-    }
-    if (views[viewIndex] == "View Calendars") {
-        searchView.style.width = "100%";
-        searchView.style.flex = "0 0 100%";
-
-        childView.style.display = "none";
-    }
-    if (views[viewIndex] == "Search Images") {
-        searchView.style.display = "none";
-
-        childView.style.display = "block";
-        childView.style.width = "100%";
-    }
+function settingsView () {
+    // TODO: settings popup
 }
