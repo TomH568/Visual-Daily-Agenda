@@ -12,7 +12,7 @@ function restoreCalendar() {
     }
     renderCalendars();
     styleCellsforSelection();
-    // cellSelection(cells[0]);
+    cellSelection(document.querySelector(".cell"));
     // BUG: Drag&drop doesn't work after loading/restoring
 }
 

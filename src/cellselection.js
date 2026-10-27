@@ -31,4 +31,4 @@ function cellSelection(element) {
 }
 
 styleCellsforSelection(); // adds selection styling to all the cells
-// cellSelection(); // selects the first cell
+cellSelection(document.querySelector(".cell")); // selects the first cell
