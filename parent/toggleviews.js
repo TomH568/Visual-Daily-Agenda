@@ -59,6 +59,8 @@ function changeToAdminView () {
 
 function changeToChildView () {
     searchView.style.display = "none"; // Hide the search view
+    adminBtn.style.display = "none"; // Hide the Admin button 
+    //childBtn.style.display = "none"; // hide child button when on child
     childMode = true;
 
     //Locking the admin button and changing its text to indicate that it is locked
@@ -81,6 +83,7 @@ function changeToChildView () {
         if (passCodeInput.value === passCode) {
             adminBtn.disabled = false;
             adminBtn.textContent = "🔓Admin";
+            adminBtn.style.display = "";
             
             
         }
@@ -89,6 +92,8 @@ function changeToChildView () {
             adminBtn.disabled = true;
             
             adminBtn.textContent = "🔒Admin";
+
+            adminBtn.style.display = "none";
             
     
 }
