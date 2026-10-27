@@ -43,8 +43,9 @@ targetBlocks.forEach(block => {
             imgToAppend.id = `img-${crypto.randomUUID()}`; // Assign a new id to the cloned image;
             makeElementDraggable(imgToAppend); // Make the cloned image draggable
         }
-
+        
         event.currentTarget.appendChild(imgToAppend);
+        
     });
 });
 
@@ -59,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const restoreButton = document.getElementById('restoreIt');
 
     snapButton.addEventListener('click', (event) => saveSnapshot());
-    restoreButton.addEventListener('click', (event) => resoreSnapshot());
+    restoreButton.addEventListener('click', (event) => restoreSnapshot());
 
     let currentImages = [];
 
@@ -175,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return jsonString;
     }
 
-    function resoreSnapshot() {
+    function restoreSnapshot() {
     
     const savedData = localStorage.getItem('gridSnapshot');
     
@@ -259,6 +260,10 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
         const draggedImgId = event.dataTransfer.getData('text/plain');
         const draggedImg = document.getElementById(draggedImgId);
+        if (draggedImg.closest('.image-grid')) {
+            console.log("moving inside image-grid blocked.");
+            return; 
+        }
         draggedImg.remove();
     });
 
