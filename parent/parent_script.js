@@ -97,20 +97,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function applyFilter() {
-        const filterValue = filterInput.value.toLowerCase().trim();
+        const searchTerm = filterInput.value.trim();
         
-        if (!filterValue) {
-            displayImages(currentImages);
-            return;
-        }
+        // searches filenames and returns imgs
+        const filteredImages = pic.show(searchTerm)
 
-        const filtered = currentImages.filter(imagePath => {
-           
-            const fileName = imagePath.split(/[/\\]/).pop().toLowerCase();
-            return fileName.includes(filterValue);
-        });
+        displayImages(filteredImages);
 
-        displayImages(filtered);
         
         const targetBlocks2 = document.querySelectorAll('.image-card');
 
@@ -136,27 +129,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // 3. Listen for the form submission (button click or Enter key press)
-    //searchForm.addEventListener('submit', (event) => {
-    //    event.preventDefault(); // Stop the page from reloading
-//
-    //    const textValue = searchInput.value;
-    //    
-    //        
-    //    const imageResults = pic.show(textValue); 
-    //    
-    //    console.log("Found files:", imageResults);
-//
-    //    displayImages(imageResults);
-    //        
-    //    
-    //});
-
-    if (filterForm) {
-        filterForm.addEventListener('submit', (event) => {
-            event.preventDefault(); 
-            applyFilter();
-        });
+    if (filterInput) {
+        filterInput.addEventListener("input", applyFilter)
     }
 
     currentImages = pic.showAll(); // Display all images initially
@@ -174,31 +148,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
 });
-
-/*const images = [
-    {
-        title: "Aamiainen",
-        category: "ateria",
-        img: "aamiainen.png" // https://kuvatyokalu.papunet.net/247343/42f10e235bfafcbb4794d8c20c6576f9/ (c: Mulberry Symbols)
-    },
-    {
-        title: "Lapaset",
-        category: "vaatteet",
-        img: "lapaset.jpg" // https://kuvatyokalu.papunet.net/247343/42f10e235bfafcbb4794d8c20c6576f9/ (c: Elina Vanninen)
-    },
-    {
-        title: "Ateria",
-        category: "ateria",
-        img: "ateria.png" // https://kuvatyokalu.papunet.net/247343/42f10e235bfafcbb4794d8c20c6576f9/ (c: Mulberry Symbols)
-    },
-    {
-        title: "Kylpy",
-        category: "peseytyminen",
-        img: "kylpy.png" // https://kuvatyokalu.papunet.net/247343/42f10e235bfafcbb4794d8c20c6576f9/ (c: Mulberry Symbols)
-    },
-    {
-        title: "Kirjoittaa",
-        category: "vapaa-aika",
-        img: "kirjoittaa.png" // https://kuvatyokalu.papunet.net/247343/42f10e235bfafcbb4794d8c20c6576f9/ (c: Mulberry Symbols)
-    }
-];*/
