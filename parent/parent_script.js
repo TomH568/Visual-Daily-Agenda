@@ -55,6 +55,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const filterForm = document.getElementById('filter-form');
     const searchInput = document.getElementById('search-input');
     const filterInput = document.getElementById('filter-input');
+    const snapButton = document.getElementById('snapIt');
+    const restoreButton = document.getElementById('restoreIt');
+
+    snapButton.addEventListener('click', (event) => saveSnapshot());
+    restoreButton.addEventListener('click', (event) => resoreSnapshot());
 
     let currentImages = [];
 
@@ -77,17 +82,15 @@ document.addEventListener("DOMContentLoaded", () => {
             img.style.width = "100%";
             makeElementDraggable(img); // Make the image draggable
             img.id = `img-${crypto.randomUUID()}`; // Set the id of the image to the draggedImgId variable
-            img.addEventListener('dragstart', (event) => {
-
-                //Limiting dragdrop for child view. If childMode===true return before execution//
-                if (childMode) {
-                    event.preventDefault();
-                    return;
-                }
-                event.dataTransfer.setData('text/plain', event.target.id); // Store the image id in the dataTransfer object
-            });
-            //const title = document.createElement("h3");
-            //title.textContent = image.title;
+            //img.addEventListener('dragstart', (event) => {
+//
+            //    //Limiting dragdrop for child view. If childMode===true return before execution//
+            //    if (childMode) {
+            //        event.preventDefault();
+            //        return;
+            //    }
+            //    event.dataTransfer.setData('text/plain', event.target.id); // Store the image id in the dataTransfer object
+            //});
 
             card.appendChild(img);
             //card.appendChild(title);
@@ -134,6 +137,93 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
     }
+
+    function saveSnapshot() {
+        const snapshot = [];
+
+        // go through all cells
+        targetBlocks.forEach((block, index) => {
+            const img = block.querySelector('img');
+
+            // create prperties for every cell
+            snapshot.push({
+                cellIndex: index,                    //cell index
+                hasImage: !!img,                     // flag for pictured cells
+                imageSrc: img ? img.src : null,      // path to picture
+                imageId: img ? img.id : null         // ID of picture
+            });
+        });
+
+        // convert array to JSON
+        const jsonString = JSON.stringify(snapshot);
+
+        console.log("Saved JSON:", jsonString);
+
+        // Saving to LocalStorage
+        localStorage.setItem('gridSnapshot', jsonString);
+        alert('Calendar snapshot is stored!');
+
+        // save as a file snapshot.json
+        /*
+        const blob = new Blob([jsonString], { type: "application/json" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "snapshot.json";
+        link.click();
+        */
+
+        return jsonString;
+    }
+
+    function resoreSnapshot() {
+    
+    const savedData = localStorage.getItem('gridSnapshot');
+    
+    if (!savedData) {
+        alert('No saved snapshot found in LocalStorage!');
+        return;
+    }
+
+    try {
+        
+        const snapshot = JSON.parse(savedData);
+
+        snapshot.forEach(data => {
+            
+            const block = targetBlocks[data.cellIndex];
+            
+            if (!block) return; // if DOM changed
+
+            // clear cell
+            const existingImg = block.querySelector('img');
+            if (existingImg) {
+                existingImg.remove();
+            }
+
+            // resore picture
+            if (data.hasImage && data.imageSrc) {
+                const img = document.createElement('img');
+                img.src = data.imageSrc;
+                img.id = data.imageId || `img-${crypto.randomUUID()}`;
+                img.style.width = "100%";
+
+                // make dragable
+                makeElementDraggable(img);
+
+                // add to the block
+                block.appendChild(img);
+            }
+        });
+
+        //alert('Calendar snapshot successfully restored!');
+
+        } catch (error) {
+            console.error("Error parsing snapshot data:", error);
+            alert('Failed to restore snapshot. Data might be corrupted.');
+        }
+    }
+
+
 
 
     // 3. Listen for the form submission (button click or Enter key press)
