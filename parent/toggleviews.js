@@ -94,6 +94,12 @@ function changeToChildView () {
 }
     });
 
+const settingsContainer = document.getElementById("settings-container");
+
 function settingsView () {
-    // TODO: settings popup
+    if (settingsContainer.style.display === "none") {
+        settingsContainer.style.display = "flex";
+    } else {
+        settingsContainer.style.display = "none";
+    }
 }
