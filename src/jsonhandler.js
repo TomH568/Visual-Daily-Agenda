@@ -1,5 +1,26 @@
 const fs = require('fs');
 
+function writeJSONData(data, filepath) {
+    try {
+        fs.writeFileSync(filepath, JSON.stringify(data, null, 2), 'utf8');
+    } catch (err) {
+        console.error('Error writing file:', err);
+    }
+}
+
+function readJSONData(filepath) {
+    try {
+        const rawdata = fs.readFileSync(filepath, 'utf8');
+        console.log("JSON read.");
+
+        const data = JSON.parse(rawdata);
+
+        return data;
+    } catch (err) {
+        console.error('Error reading file:', err);
+    }
+}
+
 class Picturedata {
     createDefault() {
         /*
@@ -8,58 +29,22 @@ class Picturedata {
         try {
             fs.access('picturedata.json');
         } catch {
-            try {
-                //CHANGED: This will now take the claendar list from the calendarData.js file
-                fs.writeFileSync('picturedata.json', JSON.stringify(calendars, null, 2), 'utf8');
-                console.log("default JSON created");
-            } catch (err) {
-                console.error('Error writing file:', err);
-            }
+            writeJSONData(calendars, 'picturedata.json');
         }
     }
 
     readData() {
         /*
-        Reads the data from 'picturedata.json' and returns the parsed data.
+        Reads the data from 'picturedata.json' and returns the parsed data (list of calendar objects).
         */
-        try {
-            const rawdata = fs.readFileSync('picturedata.json', 'utf8');
-            console.log("JSON read.");
-
-            const data = JSON.parse(rawdata);
-
-            return data;
-        } catch (err) {
-            console.error('Error reading file:', err);
-        }
-    }
-
-    writeData(index, picturepath) {
-        /*
-        Writes picture path data to a specific cell (index).
-        */
-        let data = this.readData();
-        // console.log(data);
-        data[index].image = picturepath;
-
-        try {
-            fs.writeFileSync('picturedata.json', JSON.stringify(data, null, 2), 'utf8');
-            console.log("Wrote new data to JSON");
-        } catch (err) {
-            console.error('Error writing file:', err);
-        }
+        return readJSONData('picturedata.json')
     }
 
     updateData(updatedData) {
         /*
         Overwrites the 'picturedata.json' with new data.
         */
-       try {
-            fs.writeFileSync('picturedata.json', JSON.stringify(updatedData, null, 2), 'utf8');
-            console.log("Updated JSON with new data");
-        } catch (err) {
-            console.error('Error writing file:', err);
-        }
+        writeJSONData(updatedData, 'picturedata.json');
     }
 
 }
@@ -67,6 +52,36 @@ class Picturedata {
 const jsonData = new Picturedata();
 jsonData.createDefault();
 
-// console.log(jsonData.readData())
-// jsonData.writeData(5, "../Pics/lapaset.png");
-// jsonData.updateData([{type: "something"}]);
+class Profiledata {
+    createDefault() {
+        /*
+        Creates a 'profile.json' file with default values if it doesn't exist
+        */
+        try {
+            fs.access('profile.json');
+        } catch {
+            const defaultprofile = {
+                    passcode: 1234,
+                    lastOpenedJSON: 'picturedata.json'
+            }
+            writeJSONData(defaultprofile, 'profile.json');
+        }
+    }
+
+    readData() {
+        /*
+        Reads the data from 'profile.json' and returns the parsed data (profile object).
+        */
+        return readJSONData('profile.json')
+    }
+
+    updateData(updatedData) {
+         /*
+        Overwrites the 'profile.json' with new data.
+        */
+        writeJSONData(updatedData, 'profile.json');
+    }
+}
+
+const profileData = new Profiledata();
+profileData.createDefault();
