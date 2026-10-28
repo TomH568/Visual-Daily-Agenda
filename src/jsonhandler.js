@@ -11,7 +11,7 @@ function writeJSONData(data, filepath) {
 function readJSONData(filepath) {
     try {
         const rawdata = fs.readFileSync(filepath, 'utf8');
-        console.log("JSON read.");
+        // console.log("JSON read.");
 
         const data = JSON.parse(rawdata);
 
@@ -26,10 +26,12 @@ class Picturedata {
         /*
         Creates a 'picturedata.json' file with default values if it doesn't exist
         */
-        try {
-            fs.access('picturedata.json');
-        } catch {
-            writeJSONData(calendars, 'picturedata.json');
+       try {
+            if (!fs.existsSync('picturedata.json')) {
+                writeJSONData(calendars, 'picturedata.json');
+            }
+        } catch (err) {
+            console.error('Error creating default picturedata.json: ', err);
         }
     }
 
@@ -50,6 +52,7 @@ class Picturedata {
 }
 
 const jsonData = new Picturedata();
+
 jsonData.createDefault();
 
 class Profiledata {
@@ -58,13 +61,11 @@ class Profiledata {
         Creates a 'profile.json' file with default values if it doesn't exist
         */
         try {
-            fs.access('profile.json');
-        } catch {
-            const defaultprofile = {
-                    passcode: 1234,
-                    lastOpenedJSON: 'picturedata.json'
+            if (!fs.existsSync('profile.json')) {
+                writeJSONData(profile, 'profile.json');
             }
-            writeJSONData(defaultprofile, 'profile.json');
+        } catch (err) {
+            console.error('Error creating default profile.json: ', err);
         }
     }
 
@@ -83,5 +84,13 @@ class Profiledata {
     }
 }
 
+const profile = { // global profile variable
+    passcode: '1234',
+    lastOpenedJSON: 'picturedata.json'
+}
+
 const profileData = new Profiledata();
+
 profileData.createDefault();
+
+passCode = profileData.readData().passcode; // updates the global passcode from the JSON

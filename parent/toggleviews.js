@@ -100,6 +100,10 @@ function settingsView () {
     if (settingsContainer.style.display === "none") {
         settingsContainer.style.display = "flex";
     } else {
+        document.getElementById("oldpasscode").value = "";
+        document.getElementById("newpasscode").value = "";
+        document.getElementById("invalidpasscode-message").hidden = true;
+        document.getElementById("updatedpasscode-message").hidden = true;
         settingsContainer.style.display = "none";
     }
 }

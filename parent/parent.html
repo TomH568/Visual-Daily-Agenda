@@ -18,7 +18,7 @@
         
     </header>
 
-    <div id="settings-container">
+    <div id="settings-container" style="display: none;">
             <h2>Settings</h2>
             <hr>
             <div id="calendarbuttons">
@@ -29,13 +29,15 @@
             <hr>
             <div id="settings-passcode">
                 <div class="passcodecontainer">
-                    <p>Old passcode: </p><div><input type="password"></div>
+                    <p>Old passcode: </p><div><input type="password" id="oldpasscode"></div>
                 </div>
                 <div class="passcodecontainer">
-                    <p>New passcode: </p><div><input type="password"></div>
+                    <p>New passcode: </p><div><input type="password" id="newpasscode"></div>
                 </div>
                 <button id="passcodesavebutton">Save passcode</button>
             </div>
+            <p id="invalidpasscode-message" style="color: red; margin: 0px;" hidden>Invalid passcode!</p>
+            <p id="updatedpasscode-message" style="margin: 0px;" hidden>Passcode updated.</p>
     </div>
 
     <div id="AB">

@@ -14,40 +14,43 @@ function makeElementDraggable(imgElement) {
     });
 }
 
-const targetBlocks = document.querySelectorAll('.cell');
+function selectTargetBlocks() {
+    const targetBlocks = document.querySelectorAll('.cell');
 
-targetBlocks.forEach(block => {
-    block.addEventListener('dragover', (event) => {
-        event.preventDefault();
+    targetBlocks.forEach(block => {
+        block.addEventListener('dragover', (event) => {
+            event.preventDefault();
+        });
+
+        block.addEventListener('drop', (event) => {
+            //Limiting dragdrop for child view. If childMode===true return before execution//
+                    if (childMode) {
+                        event.preventDefault();
+                        return;
+                    }
+
+            event.preventDefault();
+            const draggedImgId = event.dataTransfer.getData('text/plain');
+            const draggedImg = document.getElementById(draggedImgId);
+
+            if (event.currentTarget.querySelector('img')) {
+                event.currentTarget.querySelector('img').remove(); // Remove the existing image if there is one
+            }   
+
+            let imgToAppend = draggedImg;
+
+            if (draggedImg.parentNode.className !== event.currentTarget.className) {
+                imgToAppend = draggedImg.cloneNode(true); // Clone the dragged image to append it to the target block
+                imgToAppend.id = `img-${crypto.randomUUID()}`; // Assign a new id to the cloned image;
+                makeElementDraggable(imgToAppend); // Make the cloned image draggable
+            }
+
+            event.currentTarget.appendChild(imgToAppend);
+        });
     });
+}
 
-    block.addEventListener('drop', (event) => {
-        //Limiting dragdrop for child view. If childMode===true return before execution//
-                if (childMode) {
-                    event.preventDefault();
-                    return;
-                }
-
-        event.preventDefault();
-        const draggedImgId = event.dataTransfer.getData('text/plain');
-        const draggedImg = document.getElementById(draggedImgId);
-
-        if (event.currentTarget.querySelector('img')) {
-            event.currentTarget.querySelector('img').remove(); // Remove the existing image if there is one
-        }   
-
-        let imgToAppend = draggedImg;
-
-        if (draggedImg.parentNode.className !== event.currentTarget.className) {
-            imgToAppend = draggedImg.cloneNode(true); // Clone the dragged image to append it to the target block
-            imgToAppend.id = `img-${crypto.randomUUID()}`; // Assign a new id to the cloned image;
-            makeElementDraggable(imgToAppend); // Make the cloned image draggable
-        }
-
-        event.currentTarget.appendChild(imgToAppend);
-    });
-});
-
+selectTargetBlocks();
 
 // 2. Wait for the DOM tree to be fully loaded
 document.addEventListener("DOMContentLoaded", () => {
