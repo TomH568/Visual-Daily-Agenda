@@ -10,6 +10,7 @@ const passCodeInput = document.getElementById("passCodeInput");
 const adminBtn = document.getElementById("adminviewbutton");
 const childBtn = document.getElementById("childviewbutton");
 const settingsBtn = document.getElementById("settingsbutton");
+const settingsCloseBtn = document.getElementById("closesettingsbutton");
 
 const searchView = document.getElementById("search-side");
 const childView = document.getElementById("container-for-calendars");
@@ -27,6 +28,8 @@ adminBtn.addEventListener("click", () => changeToAdminView());
 childBtn.addEventListener("click", () => changeToChildView());
 
 settingsBtn.addEventListener("click", () => settingsView());
+
+settingsCloseBtn.addEventListener("click", () => settingsView());
 
 
 

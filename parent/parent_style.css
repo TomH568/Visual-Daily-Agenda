@@ -17,45 +17,6 @@ body {
     max-height: 140px;
 }
 
-#settings-container {
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 10px;
-    max-width: 360px;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 8px;
-    object-fit: contain;
-    z-index: 2;
-}
-
-hr {
-    width: 90%;
-}
-
-#calendarbuttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-#settings-passcode {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.passcodecontainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: -10px;
-}
-
 #AB {
     display: flex;
     /* adjust height to account for other side  */
