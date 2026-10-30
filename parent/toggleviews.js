@@ -11,6 +11,15 @@ const adminBtn = document.getElementById("adminviewbutton");
 const childBtn = document.getElementById("childviewbutton");
 const settingsBtn = document.getElementById("settingsbutton");
 
+//-----------------Calendar  views toggle -------------
+// creating a btn for each calendar object to toggle between.
+const mornBtn = document.getElementById("morningBtn");
+const aftBtn = document.getElementById("afternoonBtn");
+const eveBtn = document.getElementById("eveBtn");
+const nightBtn = document.getElementById("nightBtn");
+
+//-----------------Calendar  views toggle -------------
+
 const searchView = document.getElementById("search-side");
 const childView = document.getElementById("container-for-calendars");
 
@@ -28,6 +37,22 @@ childBtn.addEventListener("click", () => changeToChildView());
 
 settingsBtn.addEventListener("click", () => settingsView());
 
+mornBtn.addEventListener("click", () => { toggleCalendar("calendar-container") });
+aftBtn.addEventListener("click", () => {toggleCalendar("calendar-container2") });
+eveBtn.addEventListener("click", () => {toggleCalendar("calendar-container3") });
+nightBtn.addEventListener("click", () => {toggleCalendar("calendar-container4") });
+    // function to view the selected calendar and hide the others
+
+function toggleCalendar(containerId) {
+
+    const calendar = document.getElementById(containerId);
+    if (calendar.style.display === "none") {
+        calendar.style.display = "block";
+    } else {
+        calendar.style.display = "none";
+    }
+
+};
 
 
 
@@ -60,7 +85,8 @@ function changeToAdminView () {
 function changeToChildView () {
     searchView.style.display = "none"; // Hide the search view
     adminBtn.style.display = "none"; // Hide the Admin button 
-    //childBtn.style.display = "none"; // hide child button when on child
+    childBtn.style.display = "none"; // hide child button when on child
+    settingsBtn.style.display = "none"; // hide settings from child
     childMode = true;
 
     //Locking the admin button and changing its text to indicate that it is locked
@@ -84,6 +110,7 @@ function changeToChildView () {
             adminBtn.disabled = false;
             adminBtn.textContent = "🔓Admin";
             adminBtn.style.display = "";
+            settingsBtn.style.display = "";
             
             
         }
@@ -94,6 +121,7 @@ function changeToChildView () {
             adminBtn.textContent = "🔒Admin";
 
             adminBtn.style.display = "none";
+            settingsBtn.style.display = "none";
             
     
 }
