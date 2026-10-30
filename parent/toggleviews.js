@@ -18,7 +18,7 @@ const aftBtn = document.getElementById("afternoonBtn");
 const eveBtn = document.getElementById("eveBtn");
 const nightBtn = document.getElementById("nightBtn");
 
-//-----------------Calendar  views toggle -------------
+//-----------------views toggle -------------
 
 const searchView = document.getElementById("search-side");
 const childView = document.getElementById("container-for-calendars");
@@ -61,6 +61,7 @@ function toggleCalendar(containerId) {
 
 function changeToAdminView () {
     childMode = false;
+    childBtn.style.display = "";
 
     //making passcode input invisible and set to ""
     passCodeInput.style.display = "none";
