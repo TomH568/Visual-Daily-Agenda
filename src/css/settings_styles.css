@@ -16,7 +16,7 @@
 
 #closesettingsbuttoncontainer {
     position: fixed;
-    top: 0px;
+    top: -1px;
     right: 0px;
 }
 
@@ -27,8 +27,14 @@
     border-top: none;
     border-bottom: 1px solid black;
     border-bottom-left-radius: 8px;
+    border-top-right-radius: 8px;
+    cursor: pointer;
 }
 
+h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 
 hr {
     width: 90%;
@@ -49,10 +55,28 @@ hr {
 .passcodecontainer {
     display: flex;
     flex-direction: row;
+    width: 90%;
     align-items: center;
+    justify-content: space-around;
     margin-top: -10px;
 }
 
-#closesettingsbutton:hover, #passcodesavebutton:hover {
+.passcodeinputs {
+    border-radius: 8px;
+    border: 2px solid black;
+    padding: 5px; 
+}
+
+#passcodesavebutton {
+    background-color: #F3DFD5;
+    border: 2px solid black;
+    border-radius: 4px;
+    text-align: center;
+    transition-duration: 0.4s;
     cursor: pointer;
+}
+
+#passcodesavebutton:hover, #closesettingsbutton:hover {
+  background-color: #86482e;
+  color: white;
 }
