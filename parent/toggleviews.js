@@ -48,6 +48,10 @@ function changeToAdminView () {
     adminBtn.disabled = false;
     adminBtn.textContent = "🔓Admin";
 
+    //Update the settings button similarly to admin button
+    settingsBtn.disabled = false;
+    settingsBtn.textContent = "🔓Settings";
+
     //styling the search and child view to be side by side
     searchView.style.display = "block";
     searchView.style.width = "32%";
@@ -67,6 +71,10 @@ function changeToChildView () {
     //Locking the admin button and changing its text to indicate that it is locked
     adminBtn.disabled = true;
     adminBtn.textContent = "🔒Admin";
+
+    //Locking the settings button similarly to admin button
+    settingsBtn.disabled = true;
+    settingsBtn.textContent = "🔒Settings";
     
     passCodeInput.style.display = "block"; // Show the passcode input field
     passCodeInput.value = ""; // Clear the passcode input field
@@ -84,17 +92,18 @@ function changeToChildView () {
         if (passCodeInput.value === passCode) {
             adminBtn.disabled = false;
             adminBtn.textContent = "🔓Admin";
-            
-            
+
+            settingsBtn.disabled = false;
+            settingsBtn.textContent = "🔓Settings";
         }
         else {
             //KEEP LOCKED
             adminBtn.disabled = true;
-            
             adminBtn.textContent = "🔒Admin";
-            
-    
-}
+
+            settingsBtn.disabled = true;
+            settingsBtn.textContent = "🔒Settings";
+        }
     });
 
 const settingsContainer = document.getElementById("settings-container");
