@@ -2,22 +2,22 @@ const loadcalendarBtn = document.getElementById("loadbutton");
 const newcalendarBtn = document.getElementById("newbutton");
 const passcodesaveBtn = document.getElementById("passcodesavebutton");
 
-loadcalendarBtn.addEventListener("click", () => restoreCalendar());
+// loadcalendarBtn.addEventListener("click", () => restoreCalendar());
 newcalendarBtn.addEventListener("click", () => clearCalendar());
 passcodesaveBtn.addEventListener("click", () => savePasscode());
 
 const allcalendars = document.getElementsByClassName("calendarclass");
 
-function restoreCalendar() {
-    for (const calendar of allcalendars) {
-        calendar.replaceChildren();
-    }
-    renderCalendars();
-    styleCellsforSelection();
-    cellSelection(document.querySelector(".cell"));
-    selectTargetBlocks();
-    settingsView();
-}
+// function restoreCalendar() {
+//     for (const calendar of allcalendars) {
+//         calendar.replaceChildren();
+//     }
+//     renderCalendars();
+//     styleCellsforSelection();
+//     cellSelection(document.querySelector(".cell"));
+//     selectTargetBlocks();
+//     settingsView();
+// }
 
 function clearCalendar() {
     const cells = document.getElementsByClassName("cell");
