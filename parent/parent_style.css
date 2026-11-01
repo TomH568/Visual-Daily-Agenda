@@ -81,6 +81,10 @@ body {
     min-width: 600px;
 }
 
+#container-for-calendars img {
+    cursor: pointer;
+}
+
 input {
     width: 50%;
 }
@@ -139,16 +143,32 @@ input {
     background-color: #dcc8de;
 }
 
+#morningBtn:hover {
+    background-color: #c9aacc;
+}
+
 #afternoonBtn {
     background-color: #c8ded3;
+}
+
+#afternoonBtn:hover {
+    background-color: #a1cab8;
 }
 
 #eveBtn {
     background-color: #f0e6d2;
 }
 
+#eveBtn:hover {
+    background-color: #decca7;
+}
+
 #nightBtn {
     background-color: #d0c0b0;
+}
+
+#nightBtn:hover {
+    background-color: #bda58c;
 }
 
 .toggle-btn {
