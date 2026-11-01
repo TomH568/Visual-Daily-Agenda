@@ -46,12 +46,24 @@ nightBtn.addEventListener("click", () => {toggleCalendar("calendar-container4") 
 function toggleCalendar(containerId) {
 
     const calendar = document.getElementById(containerId);
+    
+    const selectedButton = {
+        "calendar-container": mornBtn,
+        "calendar-container2": aftBtn,
+        "calendar-container3": eveBtn,
+        "calendar-container4": nightBtn
+    }[containerId];
+    
     if (calendar.style.display === "none") {
         calendar.style.display = "block";
+        selectedButton.classList.add("active");
+        selectedButton.classList.remove("inactive");
     } else {
         calendar.style.display = "none";
+        selectedButton.classList.remove("active");
+        selectedButton.classList.add("inactive");
+        
     }
-
 };
 
 

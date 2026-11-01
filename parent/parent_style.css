@@ -1,6 +1,7 @@
 body {
     margin: 0 auto;
     background-color: #FFF7F2;
+    font-family: sans-serif;
 }
 
 .header {
@@ -40,10 +41,15 @@ body {
     overflow-y: auto;  
 }
 
+#search-title {
+    margin-left: 10px;
+}
+
 #filter-input {
     border-radius: 8px;
     border: 2px solid black;
     padding: 10px;  
+    margin-left: 10px;
 }
 
 .submit-btn {
@@ -103,11 +109,13 @@ input {
     cursor: pointer;
 }
 
+
+/*header buttons*/
 .button {
     background-color: #F3DFD5;
     border: 2px solid black;
     border-radius: 8px;
-    padding: 15px 32px;
+    padding: 15px 20px;
     font-size: 16px;
     text-align: center;
     transition-duration: 0.4s;
@@ -117,6 +125,56 @@ input {
 .button:hover {
   background-color: #86482e;
   color: white;
+}
+
+.view-btns {
+    display: flex;
+    gap: 10px;
+    width: fit-content;
+    padding: 4px;
+}
+
+/*calendar toggle buttons in header*/
+#morningBtn {
+    background-color: #dcc8de;
+}
+
+#afternoonBtn {
+    background-color: #c8ded3;
+}
+
+#eveBtn {
+    background-color: #f0e6d2;
+}
+
+#nightBtn {
+    background-color: #d0c0b0;
+}
+
+.toggle-btn {
+    padding: 15px 20px;
+    font-size: 14px;
+    text-align: center;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.toggle-btn.active {
+    border: 3px solid black;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.toggle-btn.inactive {
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+.time-btns {
+    display: flex;
+    gap: 10px;
+    width: fit-content;
+    padding: 4px;
 }
 
 .passCodeInput{
