@@ -91,11 +91,7 @@ Rendering the calendars onto the page
 
 // creatinng calendars for morning and afternoon//
 const loadedCalendarData = jsonData.readData();
-function renderCalendars() {
-    createCalendar("calendar-container", loadedCalendarData[0]);
-    createCalendar("calendar-container2", loadedCalendarData[1]);
-    createCalendar("calendar-container3", loadedCalendarData[2]);
-    createCalendar("calendar-container4", loadedCalendarData[3]);
-}
-
-renderCalendars();
+createCalendar("calendar-container", loadedCalendarData[0]);
+createCalendar("calendar-container2", loadedCalendarData[1]);
+createCalendar("calendar-container3", loadedCalendarData[2]);
+createCalendar("calendar-container4", loadedCalendarData[3]);
