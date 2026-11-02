@@ -11,16 +11,20 @@
 <body>
     <header class="header">
         <h1>Daily Visual Agenda</h1>
-        <button id="adminviewbutton" class="button">🔓Admin</button>
-        <input type="password" id="passCodeInput" placeholder="Enter passcode to exit">
-        
-        <button id="childviewbutton" class="button">Child</button>
-       
-        <!--Adding buttons for each calendar view-->
-        <button id="morningBtn" class="button">Morning</button>
-        <button id="afternoonBtn" class="button">Afternoon</button> 
-        <button id="eveBtn" class="button">Evening</button>
-        <button id="nightBtn" class="button">Night</button>
+        <div class="btn-placement">
+            <!--Adding buttons for each calendar view-->
+            <button id="morningBtn" class="toggle-btn active">Morning</button>
+            <button id="afternoonBtn" class="toggle-btn active">Afternoon</button> 
+            <button id="eveBtn" class="toggle-btn active">Evening</button>
+            <button id="nightBtn" class="toggle-btn active">Night</button>
+        </div>
+        <div class="btn-placement">
+            <button id="adminviewbutton" class="button">🔓Admin</button>
+            <input type="password" id="passCodeInput" placeholder="Enter passcode to exit">
+            
+            <button id="childviewbutton" class="button">Child</button>
+           
+        </div>
         <button id="settingsbutton" class="button">🔓Settings</button>
         <button id="snapIt" class="button">Save snapshot</button>
         <button id="restoreIt" class="button">Restore snapshot</button>
@@ -53,7 +57,7 @@
     <div id="AB">
 
     <div id="search-side">
-        <h2>Search for images</h2>
+        <h2 id="search-title">Search for images</h2>
 
         <form id="filter-form" class="search-box">
             <input
