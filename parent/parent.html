@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Visual Agenda</title>
     <link rel="stylesheet" href="parent_style.css">
+    <link rel="stylesheet" href="../src\css\settings_styles.css">
     <link rel="stylesheet" href="../src\css\grid_styles.css">
 </head>
 <body>
@@ -14,11 +15,40 @@
         <input type="password" id="passCodeInput" placeholder="Enter passcode to exit">
         
         <button id="childviewbutton" class="button">Child</button>
-        <button id="settingsbutton" class="button">Settings</button>
+       
+        <!--Adding buttons for each calendar view-->
+        <button id="morningBtn" class="button">Morning</button>
+        <button id="afternoonBtn" class="button">Afternoon</button> 
+        <button id="eveBtn" class="button">Evening</button>
+        <button id="nightBtn" class="button">Night</button>
+        <button id="settingsbutton" class="button">🔓Settings</button>
         <button id="snapIt" class="button">Save snapshot</button>
         <button id="restoreIt" class="button">Restore snapshot</button>
         
     </header>
+
+    <div id="settings-container" style="display: none;">
+            <div id="closesettingsbuttoncontainer"><button id="closesettingsbutton">X</button></div>
+            <h2 id="settingstitle">Settings</h2>
+            <hr>
+            <div id="calendarbuttons">
+                <button id="savebutton" class="button">Save calendar</button>
+                <button id="loadbutton" class="button">Load calendar</button>
+                <button id="newbutton" class="button">New calendar</button>
+            </div>
+            <hr>
+            <div id="settings-passcode">
+                <div class="passcodecontainer">
+                    <p>Old passcode: </p><input type="password" id="oldpasscode" class="passcodeinputs">
+                </div>
+                <div class="passcodecontainer">
+                    <p>New passcode: </p><input type="password" id="newpasscode" class="passcodeinputs">
+                </div>
+                <button id="passcodesavebutton">Save passcode</button>
+            </div>
+            <p id="invalidpasscode-message" style="color: red; margin: 0px;" hidden>Invalid passcode!</p>
+            <p id="updatedpasscode-message" style="margin: 0px;" hidden>Passcode updated.</p>
+    </div>
 
     <div id="AB">
 
@@ -49,13 +79,13 @@
     </div>
     
         <div id="container-for-calendars" class="container-for-calendars">
-            <div id="calendar-container"></div>
+            <div id="calendar-container" class="calendarclass"></div>
             <br>
-            <div id="calendar-container2"></div>
+            <div id="calendar-container2" class="calendarclass"></div>
             <br>
-            <div id="calendar-container3"></div>
+            <div id="calendar-container3" class="calendarclass"></div>
             <br>
-            <div id="calendar-container4"></div>
+            <div id="calendar-container4" class="calendarclass"></div>
         </div>
     </div>
 
@@ -71,5 +101,6 @@
 
     <script src="parent_script.js"></script>    
     
+    <script src="../src/settings.js"></script>
 </body>
 </html>
