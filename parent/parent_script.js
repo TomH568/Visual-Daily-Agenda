@@ -56,8 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const filterForm = document.getElementById('filter-form');
     const searchInput = document.getElementById('search-input');
     const filterInput = document.getElementById('filter-input');
-    const snapButton = document.getElementById('snapIt');
-    const restoreButton = document.getElementById('restoreIt');
+    const snapButton = document.getElementById('savebutton');
+    const restoreButton = document.getElementById('loadbutton');
 
     snapButton.addEventListener('click', (event) => saveSnapshot());
     restoreButton.addEventListener('click', (event) => restoreSnapshot());
@@ -214,6 +214,8 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (error) {
             console.error("Error parsing snapshot data:", error);
             alert('Failed to restore snapshot. Data might be corrupted.');
+        } finally {
+            settingsView()
         }
     }
 

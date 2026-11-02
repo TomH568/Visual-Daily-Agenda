@@ -1,4 +1,3 @@
-const loadcalendarBtn = document.getElementById("loadbutton");
 const newcalendarBtn = document.getElementById("newbutton");
 const passcodesaveBtn = document.getElementById("passcodesavebutton");
 
