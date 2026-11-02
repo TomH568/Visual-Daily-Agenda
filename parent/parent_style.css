@@ -131,7 +131,7 @@ input {
   color: white;
 }
 
-.view-btns {
+.btn-placement {
     display: flex;
     gap: 10px;
     width: fit-content;
@@ -144,7 +144,7 @@ input {
 }
 
 #morningBtn:hover {
-    background-color: #c9aacc;
+    background-color: #c595c9;
 }
 
 #afternoonBtn {
@@ -152,7 +152,7 @@ input {
 }
 
 #afternoonBtn:hover {
-    background-color: #a1cab8;
+    background-color: #8dc8af;
 }
 
 #eveBtn {
@@ -160,7 +160,7 @@ input {
 }
 
 #eveBtn:hover {
-    background-color: #decca7;
+    background-color: #d7bf8e;
 }
 
 #nightBtn {
@@ -168,7 +168,7 @@ input {
 }
 
 #nightBtn:hover {
-    background-color: #bda58c;
+    background-color: #bb9c7a;
 }
 
 .toggle-btn {
@@ -188,13 +188,6 @@ input {
 .toggle-btn.inactive {
     border: 2px solid black;
     border-radius: 8px;
-}
-
-.time-btns {
-    display: flex;
-    gap: 10px;
-    width: fit-content;
-    padding: 4px;
 }
 
 .passCodeInput{
