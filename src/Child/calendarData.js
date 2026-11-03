@@ -18,9 +18,9 @@ const morningCalendar = new Calendar(1, "Morning", "#dcc8de", [
 
 { type: "first-cell",image: "../Pics/aamu_22246.png" },
 
-{ type: "cell",image: null},
-{ type: "cell",image: null},
-{ type: "cell",image: null},
+{ type: "cell",image: "../Pics/aamu_28096.png"},
+{ type: "cell",image: "../Pics/pukeutua_23718.png"},
+{ type: "cell",image: "../Pics/pukea_2023.png"},
 { type: "cell",image: null},
 { type: "cell",image: null},
 { type: "cell",image: null},
