@@ -28,7 +28,7 @@
     border-top: none;
     border-bottom: 2px solid black;
     border-bottom-left-radius: 8px;
-    border-top-right-radius: 8px;
+    border-top-right-radius: 6px;
     cursor: pointer;
 }
 
