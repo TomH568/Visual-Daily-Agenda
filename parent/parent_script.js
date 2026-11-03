@@ -58,6 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const filterInput = document.getElementById('filter-input');
     const snapButton = document.getElementById('savebutton');
     const restoreButton = document.getElementById('loadbutton');
+    restoreSnapshot();
+    console.log("restore function is called")
 
     snapButton.addEventListener('click', (event) => saveSnapshot());
     restoreButton.addEventListener('click', (event) => restoreSnapshot());
