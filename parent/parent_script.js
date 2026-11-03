@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Saving to LocalStorage
         localStorage.setItem('gridSnapshot', jsonString);
-        alert('Calendar snapshot is stored!');
+        // alert('Calendar snapshot is stored!'); // breaks focus of passcode input
 
         // save as a file snapshot.json
         /*
