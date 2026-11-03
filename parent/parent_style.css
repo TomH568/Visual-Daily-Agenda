@@ -82,7 +82,7 @@ body {
 }
 
 #container-for-calendars img {
-    cursor: pointer;
+    cursor: grab;
 }
 
 input {
@@ -110,7 +110,7 @@ input {
     width: 100%;
     max-width: 100px;
     height: 100%;
-    cursor: pointer;
+    cursor: grab;
 }
 
 
@@ -129,6 +129,10 @@ input {
 .button:hover {
   background-color: #86482e;
   color: white;
+}
+
+button:disabled {
+    cursor: not-allowed;
 }
 
 .btn-placement {
@@ -200,5 +204,8 @@ input {
     background-color: #e94457;
 }
 
+.first-cell img {
+    cursor: default !important;
+}
 /* styling the admin button when it is locked */
 
