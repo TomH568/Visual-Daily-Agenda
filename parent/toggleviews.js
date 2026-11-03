@@ -26,6 +26,7 @@ const childView = document.getElementById("container-for-calendars");
 
 //INITIAL STATE ON PAGE LOAD
 adminBtn.textContent = "🔓Admin";
+adminBtn.style.display = "none"; // Hide the admin button initially
 passCodeInput.style.display = "none"; // Hide the passcode input field initially
 
 
@@ -85,6 +86,7 @@ function changeToAdminView () {
     //Update the button text and enable the admin button
     adminBtn.disabled = false;
     adminBtn.textContent = "🔓Admin";
+    adminBtn.style.display = "none"; // Hide the admin button when in admin view
 
     //Update the settings button similarly to admin button
     settingsBtn.disabled = false;
