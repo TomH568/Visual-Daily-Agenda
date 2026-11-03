@@ -18,11 +18,11 @@ const morningCalendar = new Calendar(1, "Morning", "#dcc8de", [
 
 { type: "first-cell",image: "../Pics/aamu_22246.png" },
 
-{ type: "cell",image: null},
-{ type: "cell",image: null},
-{ type: "cell",image: null},
-{ type: "cell",image: null},
-{ type: "cell",image: null},
+{ type: "cell",image: "../Pics/aamu_28096.png"},
+{ type: "cell",image: "../Pics/pukeutua_23718.png"},
+{ type: "cell",image: "../Pics/pukea_2023.png"},
+{ type: "cell",image: "../Pics/aamu- ja iltatoimet_24390.png"},
+{ type: "cell",image: "../Pics/aamupala_4979.png"},
 { type: "cell",image: null},
 { type: "cell",image: null},
 { type: "cell",image: null},
@@ -81,8 +81,8 @@ const nightCalendar = new Calendar(4, "Night", "#d0c0b0", [
 { type: "cell",image: null},
 { type: "cell",image: null},
 { type: "cell",image: null},
-{ type: "cell",image: null},
-{ type: "cell",image: null}
+{ type: "cell",image: "../Pics/aamu- ja iltatoimet_24390.png"},
+{ type: "cell",image: "../Pics/mennä nukkumaan_12781.png"}
 ]);
 
 // Creating an array for parsing to json - will store list of calendars
