@@ -53,6 +53,8 @@
   align-items: center;
   box-sizing: border-box;
   object-fit: contain;
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
 .image{
