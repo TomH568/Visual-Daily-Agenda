@@ -151,7 +151,7 @@ button:disabled {
 }
 
 #morningBtn:hover {
-    background-color: #c595c9;
+    background-color: #c381c9;
 }
 
 #afternoonBtn {
@@ -159,7 +159,7 @@ button:disabled {
 }
 
 #afternoonBtn:hover {
-    background-color: #8dc8af;
+    background-color: #73c5a3;
 }
 
 #eveBtn {
@@ -167,7 +167,7 @@ button:disabled {
 }
 
 #eveBtn:hover {
-    background-color: #d7bf8e;
+    background-color: #d7b87a;
 }
 
 #nightBtn {
@@ -175,7 +175,7 @@ button:disabled {
 }
 
 #nightBtn:hover {
-    background-color: #bb9c7a;
+    background-color: #bb8e5e;
 }
 
 .toggle-btn {
@@ -187,14 +187,18 @@ button:disabled {
 }
 
 .toggle-btn.active {
-    border: 3px solid black;
+    border: 3.5px solid black;
     border-radius: 8px;
     font-weight: bold;
+    box-shadow: 0 1px 5px 1px #86482e;
+    outline: 2px solid white;
+    outline-offset: -5px;
 }
 
 .toggle-btn.inactive {
     border: 2px solid black;
     border-radius: 8px;
+    filter: grayscale(50%)
 }
 
 .passCodeInput{
@@ -211,4 +215,3 @@ button:disabled {
     cursor: default !important;
 }
 /* styling the admin button when it is locked */
-
