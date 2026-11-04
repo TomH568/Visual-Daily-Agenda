@@ -1,5 +1,5 @@
 //Global variable for child view
-let childMode = false;
+let childMode = true;
 let passCode = "1234"; // Default passcode -> to exit child view..
 
 
@@ -101,7 +101,7 @@ function changeToAdminView () {
     childView.style.width = "68%";
     childView.style.left = "max(32vw, 150px)";
 
-
+    styleCellsforSelection("remove");
 }
 
 function changeToChildView () {
@@ -126,6 +126,8 @@ function changeToChildView () {
     childView.style.display = "block";
     childView.style.width = "100%";
     childView.style.left = "0px";
+
+    cellSelection(document.querySelector(".cell"));
 }
     
     //Making the passcode input field listen for input and check if it matches the passcode. If it does, change to admin view. If not, display an alert message.
