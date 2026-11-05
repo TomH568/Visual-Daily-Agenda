@@ -243,5 +243,5 @@ document.addEventListener("DOMContentLoaded", () => {
         draggedImg.remove();
     });
 
-    
+    changeToChildView(); // Start in Child view
 });

@@ -19,14 +19,14 @@
             <button id="nightBtn" class="toggle-btn active">🌙Night</button>
         </div>
         <div class="btn-placement">
-            <button id="adminviewbutton" class="button">🔓Admin</button>
+            <button id="adminviewbutton" class="button" style="display: none;">🔓Admin</button>
             <div id="headerpasscodecontainer">
                 <input type="password" id="passCodeInput" placeholder="Enter passcode to exit">
             </div>
-            <button id="childviewbutton" class="button">Child</button>
+            <button id="childviewbutton" class="button" style="display: none;">Child</button>
            
         </div>
-        <button id="settingsbutton" class="button">🔓Settings</button>
+        <button id="settingsbutton" class="button" style="display: none;">🔓Settings</button>
         <!-- <button id="snapIt" class="button">Save snapshot</button>
         <button id="restoreIt" class="button">Restore snapshot</button> -->
         
@@ -57,7 +57,7 @@
 
     <div id="AB">
 
-    <div id="search-side">
+    <div id="search-side" style="display: none;">
         <h2 id="search-title">Search for images</h2>
 
         <form id="filter-form" class="search-box">
@@ -75,7 +75,7 @@
         </main>
     </div>
     
-        <div id="container-for-calendars" class="container-for-calendars">
+        <div id="container-for-calendars" class="container-for-calendars" style="display: block; width: 100%; left: 0px;">
             <div id="calendar-container" class="calendarclass"></div>
             <br>
             <div id="calendar-container2" class="calendarclass"></div>

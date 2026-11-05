@@ -12,7 +12,7 @@ function createWindow() {
         }
     });
 
-    win.loadFile("index.html"); /* ENTRY POINT*/
+    win.loadFile("parent/parent.html"); /* ENTRY POINT*/
 }
 
 
